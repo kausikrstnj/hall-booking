@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NodeJS Hall-booking</title>
+    <link rel="stylesheet">
 </head>
 
 <body>
@@ -17,27 +18,27 @@
                         No.of.Seats Available : <%= result.numberOfSeatsAvailable %>
                             Amenities : <%= result.amenities %>
                                 Price per hr : <%= result.pricePerHr %>
-                                    <!-- <form method="POST" action="/results/<%= result._id %>?_method=DELETE"> -->
                                     <form method="POST" action="/results/<%= result._id %>?_method=DELETE">
-                                        <button type="submit">Book Room</button>
+                                        <!-- <form method="POST" action="/deleteRoom"> -->
+                                        <button type="submit">Delete</button>
                                     </form>
             </li>
             <% }); %>
     </ul>
     <h2>Create Room</h2>
     <form method="POST" action="/createRoom">
-        Room ID : <input type="text" name="roomId" placeholder="roomId" required /> <br>
-        Room Name : <input type="text" name="roomName" placeholder="roomName" required /><br>
-        No.of.Seats Available :<input type="number" name="numberOfSeatsAvailable" placeholder="numberOfSeatsAvailable"
+        Room ID : <input type="text" name="roomId" placeholder="Room ID" required /> <br>
+        Room Name : <input type="text" name="roomName" placeholder="Room Name" required /><br>
+        No.of.Seats Available :<input type="number" name="numberOfSeatsAvailable" placeholder="No.of.Seats"
             required /><br>
-        Amenities :<input type="text" name="amenities" placeholder="amenities" required /><br>
-        Price per hr : <input type="text" name="pricePerHr" placeholder="pricePerHr" required /><br>
-        Booked Status : <input type="text" name="bookedStatus" placeholder="bookedStatus" required /><br>
-        Customer Name : <input type="text" name="customerName" placeholder="customerName" required /><br>
-        Date : <input type="date" name="date" placeholder="date" required /><br>
-        Start Time : <input type="time" name="starTime" placeholder="starTime" required /><br>
-        End Time :<input type="time" name="endTime" placeholder="endTime" required /><br>
-        <button type="submit">Add Student</button>
+        Amenities :<input type="text" name="amenities" placeholder="Amenities" required /><br>
+        Price per hr : <input type="text" name="pricePerHr" placeholder="Price per hr" required /><br>
+        Booked Status : <input type="text" name="bookedStatus" placeholder="Booked Status" required /><br>
+        Customer Name : <input type="text" name="customerName" placeholder="Customer Name" required /><br>
+        Date : <input type="date" name="date" placeholder="Date" required /><br>
+        Start Time : <input type="datetime" name="starTime" placeholder="Start Time" required /><br>
+        End Time :<input type="datetime" name="endTime" placeholder="End Time" required /><br>
+        <button type="submit">Create Room</button>
     </form>
 </body>
 

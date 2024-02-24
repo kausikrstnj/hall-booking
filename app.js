@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
-
 const createRoomController = require("./controllers/createRoomController");
 const bookRoomController = require("./controllers/bookRoomController");
 
@@ -24,11 +23,14 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
 // Routes
+
 app.get("/bookedRooms", bookRoomController.getBookedRooms);
 app.get("/rooms", createRoomController.getRooms);
 app.post("/createRoom", createRoomController.createRoom); //Done
+app.delete("/deleteRoom/:id", createRoomController.deleteRoom);
 app.post("/bookRoom", bookRoomController.bookRoom);
 
 
