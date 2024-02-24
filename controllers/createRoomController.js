@@ -34,6 +34,7 @@ exports.createRoom = async (req, res) => {
 exports.deleteRoom = async (req, res) => {
     try {
         await CreateRoom.findByIdAndDelete(req.params.id);
+        console.log('delete Room params id :', req.params.id)
         res.redirect("/rooms");
     } catch (error) {
         console.error(error);

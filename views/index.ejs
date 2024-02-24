@@ -9,35 +9,42 @@
 </head>
 
 <body>
-    <h1>Room List</h1>
+    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Room List</h1>
     <ul>
         <% results.forEach(result=> {%>
-            <li>
-                Room ID : <%= result.roomId %>
-                    Room Name :<%= result.roomName %>
-                        No.of.Seats Available : <%= result.numberOfSeatsAvailable %>
-                            Amenities : <%= result.amenities %>
-                                Price per hr : <%= result.pricePerHr %>
-                                    <form method="POST" action="/results/<%= result._id %>?_method=DELETE">
-                                        <!-- <form method="POST" action="/deleteRoom"> -->
-                                        <button type="submit">Delete</button>
+            <li style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 10px;">
+                <b>Room ID :</b>
+                <%= result.roomId %>
+                    <b>Room Name :</b>
+                    <%= result.roomName %>
+                        <b>No.of.Seats Available :</b>
+                        <%= result.numberOfSeatsAvailable %>
+                            <b> Amenities :</b>
+                            <%= result.amenities %>
+                                <b>Price per hr :</b>
+                                <%= result.pricePerHr %>
+                                    <form method="POST" action="/rooms/<%= result._id %>?_method=DELETE">
+                                        <button value="<%=result._id %>" type="submit">Delete</button>
                                     </form>
             </li>
             <% }); %>
     </ul>
-    <h2>Create Room</h2>
-    <form method="POST" action="/createRoom">
+    <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Create Room</h2>
+    <form method="POST" action="/createRoom"
+        style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 10px;">
         Room ID : <input type="text" name="roomId" placeholder="Room ID" required /> <br>
         Room Name : <input type="text" name="roomName" placeholder="Room Name" required /><br>
         No.of.Seats Available :<input type="number" name="numberOfSeatsAvailable" placeholder="No.of.Seats"
             required /><br>
         Amenities :<input type="text" name="amenities" placeholder="Amenities" required /><br>
         Price per hr : <input type="text" name="pricePerHr" placeholder="Price per hr" required /><br>
-        Booked Status : <input type="text" name="bookedStatus" placeholder="Booked Status" required /><br>
+        Booked Status :
+        <input value="true" type="radio" name="bookedStatus" placeholder="Booked Status" required />Available
+        <input value="false" type="radio" name="bookedStatus" placeholder="Booked Status" required /> Booked <br>
         Customer Name : <input type="text" name="customerName" placeholder="Customer Name" required /><br>
         Date : <input type="date" name="date" placeholder="Date" required /><br>
-        Start Time : <input type="datetime" name="starTime" placeholder="Start Time" required /><br>
-        End Time :<input type="datetime" name="endTime" placeholder="End Time" required /><br>
+        Start Time : <input type="datetime-local" name="starTime" placeholder="Start Time" required /><br>
+        End Time :<input type="datetime-local" name="endTime" placeholder="End Time" required /><br>
         <button type="submit">Create Room</button>
     </form>
 </body>

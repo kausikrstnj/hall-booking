@@ -30,7 +30,7 @@ app.use(express.static('public'));
 app.get("/bookedRooms", bookRoomController.getBookedRooms);
 app.get("/rooms", createRoomController.getRooms);
 app.post("/createRoom", createRoomController.createRoom); //Done
-app.delete("/deleteRoom/:id", createRoomController.deleteRoom);
+app.delete("/rooms/:id", createRoomController.deleteRoom);
 app.post("/bookRoom", bookRoomController.bookRoom);
 
 
