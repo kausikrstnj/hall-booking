@@ -27,18 +27,13 @@ app.use(express.static('public'));
 
 // Routes
 
-app.get("/bookedRooms", bookRoomController.getBookedRooms);//Done
-app.get("/", createRoomController.getRooms);//Done
-app.post("/createRoom", createRoomController.createRoom); //Done
-app.delete("/rooms/delete/:id", createRoomController.deleteRoom);//Done
-app.get("/rooms/book/:id", bookRoomController.bookRoom);//Done
-app.put("/book/:id", bookRoomController.book);//Done
-
-app.get("/customers/bookedRooms", createRoomController.getCustomerWithBookedRooms);//Done
-
-
-
-
+app.get("/bookedRooms", bookRoomController.getBookedRooms);
+app.get("/", createRoomController.getRooms);
+app.post("/createRoom", createRoomController.createRoom);
+app.delete("/rooms/delete/:id", createRoomController.deleteRoom);
+app.get("/rooms/book/:id", bookRoomController.bookRoom);
+app.put("/book/:id", bookRoomController.book);
+app.get("/customers/bookedRooms", createRoomController.getCustomerWithBookedRooms);
 
 
 const PORT = process.env.PORT;
