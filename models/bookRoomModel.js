@@ -6,7 +6,7 @@ const bookRoomSchema = new mongoose.Schema({
     customerName: String,
     startTime: String,
     endTime: String,
-    bookedStatus: false,
+    bookedStatus: Boolean,
 });
 
 module.exports = mongoose.model("BookRoom", bookRoomSchema);

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NodeJS Hall-booking</title>
+    <link rel="stylesheet">
+</head>
+
+<body style="background: linear-gradient(to bottom,orange , skyblue); color: white;">
+    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Booked Rooms List</h1>
+    <ul>
+        <% rooms.forEach(result=> {%>
+            <li style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 10px;">
+                <b>Room Name :</b>
+                <%= result.roomName %> <br>
+
+                    <b>Booked Status :</b>
+                    <% if (result.bookedStatus) { %>
+                        Booked
+                        <% } else { %>
+                            Available
+                            <% } %><br>
+
+                                <b>Customer Name :</b>
+                                <%= result.customerDetails.customerName %><br>
+
+                                    <b> Date :</b>
+                                    <%= result.customerDetails.date %><br>
+
+                                        <b>Start Time :</b>
+                                        <%= result.customerDetails.startTime %><br>
+
+                                            <b>End Time :</b>
+                                            <%= result.customerDetails.endTime %><br>
+
+            </li>
+            <% }); %>
+    </ul>
+
+    <form method="GET" action="/" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 10px;">
+        <button type="submit">Close</button>
+    </form>
+</body>
+
+</html>

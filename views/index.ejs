@@ -8,8 +8,16 @@
     <link rel="stylesheet">
 </head>
 
-<body>
+<body style="background: linear-gradient(to bottom,orange , skyblue); color: white;">
     <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Room List</h1>
+    <form method="GET" action="/bookedRooms"
+        style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 10px;">
+        <button type="submit">See Booked Rooms</button>
+    </form>
+    <form method="GET" action="/customers/bookedRooms"
+        style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 10px;">
+        <button type="submit">All Customer with Booked Rooms</button>
+    </form>
     <ul>
         <% results.forEach(result=> {%>
             <li style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 10px;">
@@ -23,8 +31,11 @@
                             <%= result.amenities %>
                                 <b>Price per hr :</b>
                                 <%= result.pricePerHr %>
-                                    <form method="POST" action="/rooms/<%= result._id %>?_method=DELETE">
+                                    <form method="POST" action="/rooms/delete/<%= result._id %>?_method=DELETE">
                                         <button value="<%=result._id %>" type="submit">Delete</button>
+                                    </form>
+                                    <form method="POST" action="/rooms/book/<%= result._id %>?_method=GET">
+                                        <button value="<%=result._id %>" type="submit">Book Room</button>
                                     </form>
             </li>
             <% }); %>
@@ -32,19 +43,16 @@
     <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Create Room</h2>
     <form method="POST" action="/createRoom"
         style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 10px;">
-        Room ID : <input type="text" name="roomId" placeholder="Room ID" required /> <br>
-        Room Name : <input type="text" name="roomName" placeholder="Room Name" required /><br>
-        No.of.Seats Available :<input type="number" name="numberOfSeatsAvailable" placeholder="No.of.Seats"
-            required /><br>
-        Amenities :<input type="text" name="amenities" placeholder="Amenities" required /><br>
-        Price per hr : <input type="text" name="pricePerHr" placeholder="Price per hr" required /><br>
-        Booked Status :
-        <input value="true" type="radio" name="bookedStatus" placeholder="Booked Status" required />Available
-        <input value="false" type="radio" name="bookedStatus" placeholder="Booked Status" required /> Booked <br>
-        Customer Name : <input type="text" name="customerName" placeholder="Customer Name" required /><br>
-        Date : <input type="date" name="date" placeholder="Date" required /><br>
-        Start Time : <input type="datetime-local" name="starTime" placeholder="Start Time" required /><br>
-        End Time :<input type="datetime-local" name="endTime" placeholder="End Time" required /><br>
+        <label style="padding-right: 100px;" for="">Room ID :</label> <input type="text" name="roomId"
+            placeholder="Room ID" required /> <br>
+        <label style="padding-right: 67px;" for=""> Room Name :</label> <input type="text" name="roomName"
+            placeholder="Room Name" required /><br>
+        <label style="padding-right: 0px;" for="">No.of.Seats Available :</label><input type="number"
+            name="numberOfSeatsAvailable" placeholder="No.of.Seats" required /><br>
+        <label style="padding-right: 98px;" for="">Amenities :</label><input type="text" name="amenities"
+            placeholder="Amenities" required /><br>
+        <label style="padding-right: 79px;" for="">Price per hr :</label> <input type="text" name="pricePerHr"
+            placeholder="Price per hr" required /><br>
         <button type="submit">Create Room</button>
     </form>
 </body>

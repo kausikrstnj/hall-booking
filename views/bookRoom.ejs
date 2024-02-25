@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NodeJS Hall-booking</title>
+    <link rel="stylesheet">
+</head>
+
+<body style="background: linear-gradient(to bottom,orange , skyblue); color: white;">
+    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Book Room</h1>
+    <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Enter Details</h2>
+    <% roomData.forEach(room=> {%>
+        <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            Room Name: <%= room.roomName %> | No.of.seats: <%= room.numberOfSeatsAvailable %> |
+                    Amenities: <%= room.amenities %> | Price per hr: <%= room.pricePerHr %>
+        </p>
+        <ul>
+
+            <form method="POST" action="/book/<%= room._id %>?_method=PUT">
+                <li style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                    Room ID : <input name="roomId" placeholder="Room ID" required /></input>
+                </li><br>
+                <li style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                    Customer Name : <input type="text" name="customerName" placeholder="Customer Name" required />
+                </li><br>
+                <li style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                    Date :<input type="date" name="date" placeholder="Date" required /></li><br>
+                <li style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                    Start time :<input type="datetime-local" name="startTime" placeholder="" required /></li><br>
+                <li style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                    End time :<input type="datetime-local" name="endTime" placeholder="" required /></li><br>
+                <button type="submit">Book Room</button>
+            </form>
+            <% }); %>
+        </ul>
+
+</body>
+
+</html>

@@ -6,12 +6,12 @@ const createRoomSchema = new mongoose.Schema({
     numberOfSeatsAvailable: Number,
     amenities: [String],
     pricePerHr: Number,
-    bookedStatus: String,
+    bookedStatus: Boolean,
     customerDetails: {
         customerName: String,
         date: String,
-        starTime: String,
-        endTime: String
+        startTime: String,
+        endTime: String,
     }
 });
 

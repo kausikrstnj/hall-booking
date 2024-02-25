@@ -27,12 +27,14 @@ app.use(express.static('public'));
 
 // Routes
 
-app.get("/bookedRooms", bookRoomController.getBookedRooms);
-app.get("/rooms", createRoomController.getRooms);
+app.get("/bookedRooms", bookRoomController.getBookedRooms);//Done
+app.get("/", createRoomController.getRooms);//Done
 app.post("/createRoom", createRoomController.createRoom); //Done
-app.delete("/rooms/:id", createRoomController.deleteRoom);
-app.post("/bookRoom", bookRoomController.bookRoom);
+app.delete("/rooms/delete/:id", createRoomController.deleteRoom);//Done
+app.get("/rooms/book/:id", bookRoomController.bookRoom);//Done
+app.put("/book/:id", bookRoomController.book);//Done
 
+app.get("/customers/bookedRooms", createRoomController.getCustomerWithBookedRooms);//Done
 
 
 
